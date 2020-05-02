@@ -1,0 +1,12 @@
+package gps_lcm;
+
+struct gps_t
+{
+    int64_t  time;
+    double   latitude;
+    double   longitude;
+    double  altitude;
+    double   easting;
+    double  northing;
+}
+
