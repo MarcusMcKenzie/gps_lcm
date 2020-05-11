@@ -1,4 +1,6 @@
 # gps_lcm
+GPS was used in conjunction with LCM to collect and analyze the measurement data from the GPS. Walked through various parts of the city with the GPS to collect data and observe the efffect that obstructing builings had on the signals. 
+
 
 ### Required
 * LCM
