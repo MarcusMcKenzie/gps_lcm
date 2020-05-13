@@ -15,4 +15,4 @@ lcm-spy &
 #./dvl_rdi /dev/ttyS4   #DVL
 #./state_estimator &
 #./autopilot
-#kill %1 %2 %3 %4 #%5 %6 %7 %8 %9
+#kill %1 %2 %3 %4 #%5 %6 %7 %8 %9.
