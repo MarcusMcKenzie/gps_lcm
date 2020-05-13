@@ -2,7 +2,6 @@
 javaaddpath /home/marcus/eece-5554/Lab1/my_types.jar 
 javaaddpath /usr/local/share/java/lcm.jar
 
-
 % Let’s assume the logging file is lcm-l.03 in the dir below
 % open log file for reading
 
@@ -13,9 +12,7 @@ log_file = lcm.logging.Log('/home/marcus/eece-5554/Lab1/matlab_plots/gpsData_10m
 % here we are assuming that the channel we are interested in is RDI. Your channel 
 % name will be different - something to do with GPS
 % also RDI has fields altitude and ranges - GPS will probably have lat, lon, utmx,
-% utmy etc
-
-     
+% utmy etc 
 i=1;
 
 data = single(zeros(1000, 6));
@@ -32,8 +29,7 @@ while true
       gps = gps_lcm.gps_t(ev.data);
 
       % now you can do things like depending upon the rdi_t struct that was defined
-    
-	
+
 	data(i,1) = gps.time; % (timestamp in microseconds since the epoch)
 	data(i,2) = gps.latitude;
     data(i,3) = gps.longitude;
@@ -42,16 +38,12 @@ while true
 	data(i,6) = gps.northing;
     
     i=i+1;
-    
-   
+     
     end
   catch err   % exception will be thrown when you hit end of file
      break;
   end
 end
-
-
-
 
 % S = std(data(1:608,5))
 % D = sqrt(data(1:608,5).^2 + data(1:608,6).^2)
