@@ -2,11 +2,9 @@
 
 %load('gps_moving_start_end_tree_near ISEC')
 
-
 ix = data(1,5);      %initial point
 Mx = mean(data(1:608,5));
 Px = (Mx - (data(1:608,5)))  ; %Path from start
-
 
 iy = data(1,6);       %initial point
 My = mean(data(1:608,6));
@@ -23,7 +21,6 @@ Pz =round( (Mz - (data(1:608,4))),3, 'significant'); %Path from start
 %plot(.5*(data(1:313,5)),(data(1:313,6)))
 
 %V = var(data(1:313,6))
-
 
 %axis([-140 40 -20 160])
 %axis([-20 10 -15 15])
