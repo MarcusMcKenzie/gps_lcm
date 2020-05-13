@@ -6,23 +6,18 @@ import gps_lcm
 import utm
 lc = lcm.LCM()
 
-
 class GPS(object):
 
     def __init__(self, port_name):
         self.port = serial.Serial(port_name, 4800, timeout=1.)  # 9600-N-8-1
         self.lcm = lcm.LCM("udpm://?ttl=12")
         self.packet = gps_lcm.gps_t()
-                     
-	    
 
     def readloop(self):
         while True:
             line = self.port.readline()
 	    #try:
             
-           
-
 	    if line.startswith('$GPGGA'):
 
 			gpsvals = line.strip().split(',')
@@ -31,8 +26,6 @@ class GPS(object):
 
 	   		#gpsvals = [float(x) for x in gpsval.split(',')]
 			print gpsvals
-			
-			
 
 			lat = (float(gpsvals[2])%100)/60 + float(gpsvals[2])//100
 			if gpsvals[4] == 'S':
@@ -48,14 +41,11 @@ class GPS(object):
  			self.packet.longitude = float(lon)
 			self.packet.altitude = float(gpsvals[9])
                
-			
 			easting, northing, zonenum, zonelet = utm.from_latlon(lat, lon)
 
 			self.packet.easting = float(eastingstr)
 			self.packet.northing = float(northingstr)
 			
-			
-
 	    		lc.publish("GPS", self.packet.encode())
 			
 	   # except:
